@@ -65,6 +65,14 @@ public class _07_for3 {
 			}
 		}
 		}
-
+		System.out.println();
+		for (int i = 0; i < 26/2; i++) {
+		    System.out.printf("%c", 'A' + i);
+		    System.out.printf("%c", 'Z' - i);
+		    } 
+//		65 90
+//		66 89
+//		67 88
+//		68 87
 	}
 }
