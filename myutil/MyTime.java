@@ -35,13 +35,16 @@ public class MyTime {
 		String AmPm;
 		if(hour >= 0 && hour < 12) {
 			AmPm = "오전";
+		}else if(hour == 24) {
+			AmPm = "오전";
+			hour = 0;
 		}else if(hour == 12) {
 			AmPm = "오후";
-		}else if(hour > 12){
+		}else if(hour > 12 && hour < 25){
 			hour = hour - 12;
 			AmPm = "오후";
 		}else{
-			System.out.println("시간은 음수가 없습니다");
+			System.out.println("틀린 시간입니다");
 			return;
 		}
 		System.out.printf("%s %02d:%02d:%02d\n",
