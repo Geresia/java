@@ -1,28 +1,17 @@
 package myutil;
 
-// 자바의 모든 객체는 Object로 부터 상속 받는다
-public class BaseCalc /* extends Object */{
+public interface BaseCalc {
 	
-	public int plus(int a, int b) {
-		
-		return a + b;
-	}
-	public int minus(int a, int b) {
-		
-		return a - b;
-	}
-	public double times(double a, double b) {
-		
-		return a * b;
-	}
-	public int times(int a, int b) {
-		
-		return a * b;
-	}
-	public int divide(int a, int b) {
-
-		
-		return (b==0)? 0 : a / b;
-	}
+	//상수/추상메소드/default메소드
+	
+	public static final double PI2 = 3.14;
+	double PI = 3.14;
+					 int minus(int a,int b);
+	public abstract int plus(int a, int b);
+	
+//	int plus(int a,int b);
+	
+	//optional 메소드(필요에 따라서 override해라)
+	default int hap(int n) {return 0;}
 	
 }

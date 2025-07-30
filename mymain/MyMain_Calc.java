@@ -1,63 +1,35 @@
 package mymain;
 
-import myutil.AdvanceCalc;
 import myutil.BaseCalc;
+import myutil.BaseCalcImpl;
+import myutil.CalcFactory;
 
 public class MyMain_Calc {
 	
-	static void onlyBaseCalc(BaseCalc bc) {
-							// BaseCalc bc = ac <- Up-casting(권한축소)
-		
-		System.out.println("---[BaseCalc]---");
-		int a = 10, b = 3, result;
-		result = bc.plus(a, b);
-		System.out.printf("%d + %d = %d\n", a, b, result);
-		
-	}
-	static void onlyObject(Object ob) {
-							// Object ob = ac <- Up-casting(권한축소)
-		
-		System.out.println("---[object]---");
-		
-		System.out.println(ob.toString());
-		
-		int n = 10, result;
-		
-		// down-casint:영역의 확장
-		result = ((AdvanceCalc)ob).hap(n);
-		
-		System.out.printf("%d까지의 합: %d\n", n, result);
-		
-		Object ob1 = new Object();
-		
-		AdvanceCalc ac = (AdvanceCalc)ob1;
-		
-	}
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		AdvanceCalc ac = new AdvanceCalc();
+		System.out.println(BaseCalc.PI);
 		
-		onlyBaseCalc(ac);
+//		BaseCalc.PI = 3.141592;
 		
-		onlyObject(ac);
+		//인터페이스 = new 클래스()
+		//  설명서   = new 설계서()
+//		BaseCalc calc = new BaseCalcImpl();
 		
-		System.out.println("---[AdvanceCalc]---");
+		//Design Pattern
+		//1.singleton pattern
+		//2.factory   pattern
+		BaseCalc calc = CalcFactory.getInstance().getCalc();
 		
-		int x = 10 , y = 3, result;
+		int x = 10, y =5, result;
 		
-		result = ac.plus(x,y);
+		result = calc.plus(x, y);
 		
 		System.out.printf("%d + %d = %d\n", x, y, result);
 		
-		result = ac.hap(x);
+		result = calc.hap(x);
 		System.out.printf("%d까지의 합=%d\n", x, result);
 		
-		int a = 2, b = 10;
-		double result1 = ac.pow(a, b);
-		
-		System.out.printf("%d's %d승 = %.0f\n", a, b, result1);
 	}
 
 }
